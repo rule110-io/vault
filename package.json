@@ -1,6 +1,6 @@
 {
   "name": "vault",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A multi platform desktop wallet for the NKN blockchain",
   "main": "./dist/main/index.js",
   "scripts": {
