@@ -1,0 +1,111 @@
+/*========== Fragment ==========*/
+
+.fragment{  
+  &__right{
+    position: absolute;
+    bottom: -45px;
+    right: -100px;
+  }
+}
+
+/*========== Layouts ==========*/
+
+.layout {
+  &-login {
+    background-color: $primary;
+    overflow: hidden;
+    border-radius: $card-br;
+    height: 885px;
+
+    &__wrapper {
+      max-width: 1400px;
+      margin: 0 auto;
+      min-height: calc(100vh - 32px);
+      padding-top: 32px;
+      position: relative;
+    }
+
+    &__content {
+      padding: 0 $padding-big;
+    }
+
+    &__logo {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+      position: relative;
+      z-index: 1;
+    }
+
+    &__title {
+      font-size: $fz-lg;
+      letter-spacing: 0.1em;
+      font-family: $heading-font;
+      font-weight: $fw-normal;
+      line-height: 21px;
+      color: $white;
+      margin-left: $padding-micro;
+      b{
+        font-weight: $fw-bold;
+      }
+      .small{
+        font-size: 0.8em;
+      }
+    }
+
+    &__header {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      padding: $padding-big;
+    }
+
+    &__btn {
+      appearance: none;
+      -webkit-appearance: none;
+      border: none;
+      background-color: transparent;
+      outline: none;
+      color: $white;
+      cursor: pointer;
+      text-transform: uppercase;
+      line-height: 21px;
+      font-size: $fz-lg;
+      font-family: $heading-font;
+      padding: $padding-default $padding-big;
+      border-radius: 100em;
+      transition: $transition-1;
+
+      &:hover {
+        background-color: $grey-light;
+        color: $primary;
+      }
+
+      &:active {
+        background-color: $grey-dark;
+      }
+    }
+  }
+
+  &-dashboard{
+    height: 885px;
+    border-radius: $card-br;
+    background: transparent;
+    
+    &__wrapper {
+      padding-top: 32px;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      min-height: calc(100vh - 32px);
+      border-bottom-right-radius: $card-br;
+    }
+    
+    &__content{
+      padding: 60px $padding-medium 60px calc(#{$padding-medium} + 64px);
+      background: $white;
+      grid-column: span 8;
+      border-bottom-left-radius: $card-br;
+    }
+  }
+}

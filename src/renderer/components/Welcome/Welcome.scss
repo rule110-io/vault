@@ -1,0 +1,62 @@
+.welcome {
+  &__content {
+    display: grid;
+    grid-template-columns: 0.8fr 1fr;
+    padding-bottom: 25px;
+  }
+
+  &__back {
+    position: absolute;
+    left: 30px;
+    top: -90px;
+    width: 450px;
+  }
+
+  &__left {
+    padding-top: 125px;
+    position: relative;
+  }
+
+  &__descr {
+    margin-top: $padding-medium;
+    color: $white;
+    font-size: $fz-lg;
+    margin-bottom: $padding-big;
+  }
+
+  &__share {
+    max-width: 100%;
+    position: relative;
+    top: -10px;
+  }
+
+  &__controls {
+    position: relative;
+    display: flex;
+  }
+
+  &__disclaimer {
+    position: relative;
+
+    &-text {
+      position: relative;
+      color: $grey-dark;
+      font-size: $fz-md;
+      max-width: 480px;
+      padding-bottom: $padding-big;
+    }
+
+    &-fragment {
+      position: absolute;
+      left: -40px;
+      bottom: -75px;
+      height: 300px;
+    }
+  }
+
+  &__btn {
+    &:not(:first-child) {
+      margin-left: $padding-default;
+    }
+  }
+}

@@ -1,0 +1,40 @@
+.settings{
+
+  &__item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: $padding-big;
+
+    &_last{
+      margin-bottom: 0;
+    }
+  }
+
+  &__descr{
+    margin-top: $padding-default;
+  }
+
+  &__left{
+    flex: 1;
+    margin-right: $padding-default;
+  }
+
+  &__right{
+    min-width: 180px;
+
+    &_flex{
+      display: flex;
+    }
+
+    &-item{
+      width: 100%;
+      
+      &:not(:last-child){
+        margin-right: $padding-default;
+      }
+    }
+  }
+
+
+}

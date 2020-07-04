@@ -1,0 +1,63 @@
+.topbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: $white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 234324;
+  width: 100%;
+  -webkit-app-region: drag;
+  border-top-left-radius: $card-br;
+  border-top-right-radius: $card-br;
+
+  &__controls{
+    display: flex;
+    -webkit-app-region: no-drag;
+    align-items: center;
+  }
+
+  &__button{
+    padding: $padding-micro $padding-small;
+    transition: $transition-1;
+    cursor: pointer;
+
+    &:last-child{
+      border-top-right-radius: $card-br;
+    }
+
+    &_close{
+      background: $error;
+      color: $white;
+
+      &:hover{
+        background: lighten($error, 10%);
+      }
+
+      &:active{
+        background: lighten($error, 20%);
+      }
+    }
+
+    &_min{
+      &:hover{
+        background: darken($white, 10%);
+      }
+
+      &:active{
+        background: darken($white, 20%);
+      }
+    }
+
+    &_max{
+      &:hover{
+        background: darken($white, 10%);
+      }
+
+      &:active{
+        background: darken($white, 20%);
+      }
+    }
+  }
+}

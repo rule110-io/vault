@@ -1,0 +1,33 @@
+.card {
+  background: $card-bg-default;
+  border-radius: $card-br;
+  box-sizing: border-box;
+  box-shadow: $card-shadow;
+  overflow: hidden;
+  position: relative;
+
+  &_shadow{
+    &_mini{
+      box-shadow: $shadow-2;
+    }
+  }
+
+  &_padding {
+    &_normal {
+      padding: $padding-big $padding-medium;
+    }
+
+    &_none {
+      padding: 0;
+    }
+  }
+
+  &_hover {
+    cursor: pointer;
+    transition: $transition-1;
+
+    &:hover {
+      box-shadow: $shadow-2;
+    }
+  }
+}

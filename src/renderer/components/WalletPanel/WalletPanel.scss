@@ -1,0 +1,91 @@
+.wallet-panel{
+  grid-column: span 4;
+  padding: $padding-medium;
+  background: $primary;
+  color: $white;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  border-bottom-right-radius: $card-br;
+
+  &__bot{
+    position: relative;
+    padding-bottom: 400px;
+  }
+
+  &__row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &:last-child{
+      margin-top: $padding-big;
+    }
+  }
+
+  &__copy{
+    margin-left: $padding-micro;
+    cursor: pointer;
+    transition: $transition-1;
+
+    &:hover{
+      opacity: 0.8;
+    }
+
+    &:active{
+      opacity: 0.5;
+    }
+  }
+
+  &__address{
+    display: flex;
+    align-items: center;
+    font-size: 12.5px;
+
+    @include size-lg {
+      font-size: $fz-md;
+    }
+
+    @include size-llg {
+      font-size: $fz-base;
+    }
+  }
+
+  &__right{
+    text-align: right;
+  }
+
+  &__name{
+    margin-bottom: $padding-micro;
+    font-size: $fz-lg;
+  }
+
+  &__symbol{
+    font-family: $heading-font;
+    font-size: $fz-md;
+  }
+
+  &__change{
+    &_positive{
+      color: $success-neon;
+    }
+
+    &_negative{
+      color: $error;
+
+      path{
+        fill: $error;
+      }
+
+      svg{
+        transform: rotate(180deg);
+      }
+    }
+
+    &-icon{
+      margin-right: $padding-micro;
+      position: relative;
+      bottom: 2px;
+    }
+  }
+}

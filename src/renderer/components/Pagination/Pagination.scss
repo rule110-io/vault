@@ -1,0 +1,60 @@
+.pagination {
+  padding: $padding-micro;
+  border-radius: $card-br;
+  border: $card-border;
+  box-sizing: border-box;
+  background: $white;
+  outline: none;
+  cursor: pointer;
+  transition: $transition-1;
+
+  &:not(:last-child) {
+    margin-right: 8px;
+  }
+
+  &:hover {
+    border-color: $secondary;
+
+    .pagination__arrow {
+      path {
+        fill: $secondary;
+      }
+    }
+  }
+
+  &:focus {
+    border-color: darken($secondary, 10%);
+
+    .pagination__arrow {
+      path {
+        fill: darken($secondary, 10%);
+      }
+    }
+  }
+
+  &_disabled {
+    border: $card-border !important;
+    cursor: not-allowed;
+    background: #F4F4F4;
+
+    .pagination__arrow {
+      path {
+        fill: #a7b4cc !important;
+        opacity: 0.5;
+      }
+    }
+  }
+
+  &__arrow {
+    path {
+      transition: $transition-1;
+      opacity: 1;
+    }
+
+    &_type {
+      &_next {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
