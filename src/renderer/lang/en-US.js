@@ -164,5 +164,9 @@ export default {
   'manageWallets': 'Manage wallets',
   'manageWalletsDescr': 'Here you can manage your saved wallets.',
   'manage': 'Manage',
-  'savedWalletDeleteSuccess': 'Your wallet has been removed successfully'
+  'savedWalletDeleteSuccess': 'Your wallet has been removed successfully',
+  'walletTransferSuccess': 'Transfer successfully created',
+  'walletNameDelError': 'Error on deleting wallet name',
+  'savedWalletNameDuplicate': 'Wallet name already taken',
+  'savedWalletSeedDuplicate': 'Wallet seed already used in saved wallet'
 }
