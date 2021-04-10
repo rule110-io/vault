@@ -329,14 +329,13 @@
 import fs from 'fs'
 import { mapGetters } from 'vuex'
 
+import nkn from 'nkn-sdk'
 import Card from '~/components/Card/Card.vue'
 import Button from '~/components/Button/Button.vue'
 import Select from '~/components/Controls/Select/Select.vue'
 import Checkbox from '~/components/Controls/Checkbox/Checkbox.vue'
 import WalletIcon from '~/assets/icons/wallet.svg'
 import Fragment from '~/assets/icons/modal-fragment.svg'
-
-require('~/assets/nkn.min.js')
 
 export default {
   components: { Card, Button, WalletIcon, Fragment, Select, Checkbox },

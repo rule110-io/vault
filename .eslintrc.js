@@ -29,6 +29,7 @@ module.exports = {
     "vue/max-attributes-per-line": "off",
     "vue/singleline-html-element-content-newline": 0,
     "no-prototype-builtins": 0,
-    "vue/no-mutating-props": 0
+    "vue/no-mutating-props": 0,
+    "vue/component-tags-order": 0
   }
 };
