@@ -8,8 +8,8 @@
 import Welcome from '~/components/Welcome/Welcome.vue'
 
 export default {
-  layout: 'login',
   components: { Welcome },
+  layout: 'login',
   data () {
     return {}
   },

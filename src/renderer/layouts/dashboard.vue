@@ -87,7 +87,7 @@ export default {
     newVersionAlert () {
       if (this.isNewVersion) {
         this.$store.dispatch('snackbar/updateSnack', {
-          snack: `newVersionAlert`,
+          snack: 'newVersionAlert',
           color: 'alert',
           timeout: false
         })

@@ -5,7 +5,7 @@ const app = remote.app
 export const state = () => ({
   selectedCurrency: 'USD',
   availableCurrencies: ['USD'],
-  exchangeRates: { 'rates': { 'USD': 1 }, 'base': 'USD', 'date': '2019-01-01' }
+  exchangeRates: { rates: { USD: 1 }, base: 'USD', date: '2019-01-01' }
 })
 
 export const mutations = {

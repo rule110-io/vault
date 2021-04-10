@@ -14,8 +14,8 @@
 import Settings from '~/components/Settings/Settings.vue'
 
 export default {
-  layout: 'dashboard',
   components: { Settings },
+  layout: 'dashboard',
   data () {
     return {
     }

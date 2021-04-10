@@ -14,8 +14,8 @@
 import Transfer from '~/components/Transfer/Transfer.vue'
 
 export default {
-  layout: 'dashboard',
   components: { Transfer },
+  layout: 'dashboard',
   data () {
     return {
     }

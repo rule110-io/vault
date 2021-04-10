@@ -8,8 +8,8 @@ import CreateWalletModal from '~/components/Modals/CreateWalletModal/CreateWalle
 import CreatedWalletModal from '~/components/Modals/CreatedWalletModal/CreatedWalletModal.vue'
 
 export default {
-  layout: 'login',
   components: { CreateWalletModal, CreatedWalletModal },
+  layout: 'login',
   data () {
     return {
       wallet: false

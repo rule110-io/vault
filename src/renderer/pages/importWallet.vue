@@ -6,8 +6,8 @@
 import ImportWalletModal from '~/components/Modals/ImportWalletModal/ImportWalletModal.vue'
 
 export default {
-  layout: 'login',
   components: { ImportWalletModal },
+  layout: 'login',
   data () {
     return {
     }
