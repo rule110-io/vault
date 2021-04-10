@@ -12,5 +12,7 @@
       "language": "javascript",
       "autoFix": true
     }
-  ]
+  ],
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
 }

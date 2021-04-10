@@ -6,7 +6,8 @@
 require('dotenv').config()
 
 module.exports = {
-  mode: 'spa', // or 'universal'
+  ssr: false,
+  target: 'static',
   head: {
     title: 'vault',
     link: [

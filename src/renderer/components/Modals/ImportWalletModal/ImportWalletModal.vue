@@ -2,34 +2,44 @@
   <div class="fragment">
     <Card class="modal">
       <h2 class="modal__title">
-        {{ $t('openWallet') }}
+        {{ $t("openWallet") }}
       </h2>
 
       <div class="modal-switch">
-        <div v-if="savedWallets.length"
-             :class="['modal-switch__button', currentView === 'saved' ? 'modal-switch__button_active' : null]"
-             @click="switchView('saved')"
+        <div
+          v-if="savedWallets.length"
+          :class="[
+            'modal-switch__button',
+            currentView === 'saved' ? 'modal-switch__button_active' : null
+          ]"
+          @click="switchView('saved')"
         >
-          {{ $t('savedWallets') }}
+          {{ $t("savedWallets") }}
         </div>
         <div
-          :class="['modal-switch__button', currentView === 'pk' ? 'modal-switch__button_active' : null]"
+          :class="[
+            'modal-switch__button',
+            currentView === 'pk' ? 'modal-switch__button_active' : null
+          ]"
           @click="switchView('pk')"
         >
-          {{ $t('privateKey') }}
+          {{ $t("privateKey") }}
         </div>
         <div
-          :class="['modal-switch__button', currentView === 'json' ? 'modal-switch__button_active' : null]"
+          :class="[
+            'modal-switch__button',
+            currentView === 'json' ? 'modal-switch__button_active' : null
+          ]"
           @click="switchView('json')"
         >
-          {{ $t('walletFile') }}
+          {{ $t("walletFile") }}
         </div>
       </div>
 
       <template v-if="currentView === 'saved'">
         <div class="modal__body">
           <label class="modal__label">
-            {{ $t('selectSavedWallet') }}
+            {{ $t("selectSavedWallet") }}
             <span
               v-tooltip="{
                 content: $t('selectSavedWalletInfo'),
@@ -39,11 +49,16 @@
               class="modal__info fe fe-info"
             />
             <div class="modal__input">
-              <Select :items="savedWalletsNames" :active-item="selectedWallet" type="modal" @update="updateSelectedWallet" />
+              <Select
+                :items="savedWalletsNames"
+                :active-item="selectedWallet"
+                type="modal"
+                @update="updateSelectedWallet"
+              />
             </div>
           </label>
           <label class="modal__label">
-            {{ $t('enterSecurityPassword') }}
+            {{ $t("enterSecurityPassword") }}
             <span
               v-tooltip="{
                 content: $t('securityPasswordInfo'),
@@ -59,7 +74,10 @@
                 :type="!securityPasswordConfirmVisible ? 'password' : 'text'"
               >
               <span
-                :class="['modal__input-action', securityPasswordConfirmVisible ? 'fe fe-eye-off' : 'fe fe-eye']"
+                :class="[
+                  'modal__input-action',
+                  securityPasswordConfirmVisible ? 'fe fe-eye-off' : 'fe fe-eye'
+                ]"
                 @click="toggleSecurityPasswordConfirmVisible"
               />
             </div>
@@ -70,7 +88,7 @@
       <template v-if="currentView === 'pk'">
         <div class="modal__body modal__body_flex">
           <label class="modal__label">
-            {{ $t('enterYourPrivateKey') }}
+            {{ $t("enterYourPrivateKey") }}
             <span
               v-tooltip="{
                 content: $t('secretSeedInfo'),
@@ -86,14 +104,17 @@
                 :type="!pkVisible ? 'password' : 'text'"
               >
               <span
-                :class="['modal__input-action', pkVisible ? 'fe fe-eye-off' : 'fe fe-eye']"
+                :class="[
+                  'modal__input-action',
+                  pkVisible ? 'fe fe-eye-off' : 'fe fe-eye'
+                ]"
                 @click="togglePkVisible"
               />
             </div>
           </label>
           <template v-if="isSave">
             <label class="modal__label  modal__label_half">
-              {{ $t('createWalletName') }}
+              {{ $t("createWalletName") }}
               <span
                 v-tooltip="{
                   content: $t('walletNameInfo'),
@@ -111,7 +132,7 @@
               </div>
             </label>
             <label class="modal__label  modal__label_half">
-              {{ $t('createSecurityPassword') }}
+              {{ $t("createSecurityPassword") }}
               <span
                 v-tooltip="{
                   content: $t('createSecurityPasswordInfo'),
@@ -127,7 +148,10 @@
                   :type="!securityPasswordVisible ? 'password' : 'text'"
                 >
                 <span
-                  :class="['modal__input-action', securityPasswordVisible ? 'fe fe-eye-off' : 'fe fe-eye']"
+                  :class="[
+                    'modal__input-action',
+                    securityPasswordVisible ? 'fe fe-eye-off' : 'fe fe-eye'
+                  ]"
                   @click="toggleSecurityPasswordVisible"
                 />
               </div>
@@ -149,15 +173,31 @@
               <div class="modal__file-wrapper">
                 <div class="modal__file-content">
                   <WalletIcon class="modal__file-icon" />
-                  <div class="modal__file-title"><span v-if="!walletFileName"> {{ $t('dndYourWalletFile') }}</span> <span v-if="isWalletFile && walletFileName">{{ $t('walletFileUploadSuccess') }}</span> <span v-if="!isWalletFile && walletFileName">{{ $t('walletFileUploadFail') }}</span></div>
-                  <p v-if="!walletFileName" class="modal__file-descr">{{ $t('or') }} <span class="modal__file-descr_accent">{{ $t('browseFiles') }}</span></p>
-                  <p v-else class="modal__file-descr_accent">{{ walletFileName }}</p>
+                  <div class="modal__file-title">
+                    <span v-if="!walletFileName">
+                      {{ $t("dndYourWalletFile") }}</span>
+                    <span v-if="isWalletFile && walletFileName">{{
+                      $t("walletFileUploadSuccess")
+                    }}</span>
+                    <span v-if="!isWalletFile && walletFileName">{{
+                      $t("walletFileUploadFail")
+                    }}</span>
+                  </div>
+                  <p v-if="!walletFileName" class="modal__file-descr">
+                    {{ $t("or") }}
+                    <span class="modal__file-descr_accent">{{
+                      $t("browseFiles")
+                    }}</span>
+                  </p>
+                  <p v-else class="modal__file-descr_accent">
+                    {{ walletFileName }}
+                  </p>
                 </div>
               </div>
             </div>
           </label>
           <label class="modal__label">
-            {{ $t('enterWalletFilePassword') }}
+            {{ $t("enterWalletFilePassword") }}
             <span
               v-tooltip="{
                 content: $t('walletFilePasswordInfo'),
@@ -173,14 +213,17 @@
                 :type="!passwordVisible ? 'password' : 'text'"
               >
               <span
-                :class="['modal__input-action', passwordVisible ? 'fe fe-eye-off' : 'fe fe-eye']"
+                :class="[
+                  'modal__input-action',
+                  passwordVisible ? 'fe fe-eye-off' : 'fe fe-eye'
+                ]"
                 @click="togglePasswordVisible"
               />
             </div>
           </label>
           <template v-if="isSave">
             <label class="modal__label  modal__label_half">
-              {{ $t('createWalletName') }}
+              {{ $t("createWalletName") }}
               <span
                 v-tooltip="{
                   content: $t('walletNameInfo'),
@@ -198,7 +241,7 @@
               </div>
             </label>
             <label class="modal__label modal__label_half">
-              {{ $t('createSecurityPassword') }}
+              {{ $t("createSecurityPassword") }}
               <span
                 v-tooltip="{
                   content: $t('createSecurityPasswordInfo'),
@@ -214,7 +257,10 @@
                   :type="!securityPasswordVisible ? 'password' : 'text'"
                 >
                 <span
-                  :class="['modal__input-action', securityPasswordVisible ? 'fe fe-eye-off' : 'fe fe-eye']"
+                  :class="[
+                    'modal__input-action',
+                    securityPasswordVisible ? 'fe fe-eye-off' : 'fe fe-eye'
+                  ]"
                   @click="toggleSecurityPasswordVisible"
                 />
               </div>
@@ -232,34 +278,36 @@
             :value="isSave"
             @change="changeIsSave"
           >
-            {{ $t('saveMyWallet') }}
+            {{ $t("saveMyWallet") }}
           </Checkbox>
         </div>
 
         <div class="modal__footer-controls">
-          <Button
-            :click="goToCreate"
-            theme="text"
-          >
-            {{ $t('dontHaveAWallet') }}
+          <Button :click="goToCreate" theme="text">
+            {{ $t("dontHaveAWallet") }}
           </Button>
           <Button
-            v-if="currentView ==='pk'"
+            v-if="currentView === 'pk'"
             :click="unlockWalletFromPk"
             theme="secondary"
             :disabled="!isPk || !isSecurityPassword || !isWalletName"
             icon="unlock"
           >
-            {{ $t('unlock') }}
+            {{ $t("unlock") }}
           </Button>
           <Button
-            v-else-if="currentView ==='json'"
+            v-else-if="currentView === 'json'"
             :click="unlockWalletFromJson"
             theme="secondary"
-            :disabled="!isWalletFile || !isPassword || !isSecurityPassword || !isWalletName"
+            :disabled="
+              !isWalletFile ||
+                !isPassword ||
+                !isSecurityPassword ||
+                !isWalletName
+            "
             icon="unlock"
           >
-            {{ $t('unlock') }}
+            {{ $t("unlock") }}
           </Button>
           <Button
             v-else
@@ -268,7 +316,7 @@
             :disabled="!isSecurityPasswordConfirm"
             icon="unlock"
           >
-            {{ $t('unlock') }}
+            {{ $t("unlock") }}
           </Button>
         </div>
       </div>
@@ -316,7 +364,9 @@ export default {
     }),
     savedWalletsNames () {
       const savedWallets = this.savedWallets
-      return savedWallets.length ? savedWallets.map(wallet => wallet.walletName) : []
+      return savedWallets.length
+        ? savedWallets.map(wallet => wallet.walletName)
+        : []
     },
     isPk () {
       const pk = this.pk.trim()
@@ -324,6 +374,7 @@ export default {
     },
     isWalletFile () {
       const wallet = this.walletFile
+      // eslint-disable-next-line no-prototype-builtins
       return wallet.hasOwnProperty('Address')
     },
     isPassword () {
@@ -339,7 +390,9 @@ export default {
     isSecurityPasswordConfirm () {
       const securityPassword = this.securityPasswordConfirm
       const selectedWallet = this.selectedWallet
-      const walletPassword = this.savedWallets.filter(wallet => wallet.walletName === selectedWallet)[0].securityPassword
+      const walletPassword = this.savedWallets.filter(
+        wallet => wallet.walletName === selectedWallet
+      )[0].securityPassword
       return walletPassword === securityPassword
     },
     isWalletName () {
@@ -393,7 +446,8 @@ export default {
       this.securityPasswordVisible = !this.securityPasswordVisible
     },
     toggleSecurityPasswordConfirmVisible () {
-      this.securityPasswordConfirmVisible = !this.securityPasswordConfirmVisible
+      this.securityPasswordConfirmVisible = !this
+        .securityPasswordConfirmVisible
     },
     uploadWallet (file) {
       if (file.target.files.length < 1) {
@@ -413,8 +467,14 @@ export default {
       const password = 'nknx-password'
       const securityPassword = this.securityPassword
 
-      const walletName = currentView !== 'saved' ? this.walletName : this.selectedWallet
-      const seed = currentView !== 'saved' ? this.pk : this.savedWallets.filter(wallet => wallet.walletName === walletName)[0].pk
+      const walletName =
+        currentView !== 'saved' ? this.walletName : this.selectedWallet
+      const seed =
+        currentView !== 'saved'
+          ? this.pk
+          : this.savedWallets.filter(
+            wallet => wallet.walletName === walletName
+          )[0].pk
 
       let wallet = null
 
@@ -454,8 +514,12 @@ export default {
       const currentView = this.currentView !== 'saved'
       const isSave = this.isSave
 
-      const isWalletName = this.savedWallets ? this.savedWallets.filter(x => x.walletName === walletName).length : false
-      const isWalletSeed = this.savedWallets ? this.savedWallets.filter(x => x.pk === wallet.account.key.seed).length : false
+      const isWalletName = this.savedWallets
+        ? this.savedWallets.filter(x => x.walletName === walletName).length
+        : false
+      const isWalletSeed = this.savedWallets
+        ? this.savedWallets.filter(x => x.pk === wallet.account.key.seed).length
+        : false
 
       if (isWalletName && currentView && isSave) {
         this.$store.dispatch('snackbar/updateSnack', {
@@ -471,7 +535,11 @@ export default {
         })
       } else {
         if (isSave) {
-          this.$store.dispatch('wallet/updateSavedWallets', { wallet, walletName, securityPassword })
+          this.$store.dispatch('wallet/updateSavedWallets', {
+            wallet,
+            walletName,
+            securityPassword
+          })
         }
 
         this.$store.dispatch('wallet/updateActiveWallet', wallet)

@@ -14,8 +14,8 @@
 import Transactions from '~/components/Transactions/Transactions.vue'
 
 export default {
-  layout: 'dashboard',
   components: { Transactions },
+  layout: 'dashboard',
   data () {
     return {}
   },

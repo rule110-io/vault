@@ -4,52 +4,53 @@
   "description": "A multi platform desktop wallet for the NKN blockchain",
   "main": "./dist/main/index.js",
   "scripts": {
-    "dev": "cross-env-shell NODE_ENV=development node .electron-nuxt/index.js",
-    "build": "cross-env-shell NODE_ENV=production node .electron-nuxt/index.js",
+    "dev": "node .electron-nuxt/dev.js",
+    "build": "node .electron-nuxt/build.js",
     "lint": "node_modules/.bin/eslint --ext .js,.vue -f ./node_modules/eslint-friendly-formatter ./src",
-    "lint:fix": "npm run lint -- --fix",
-    "postinstall": "electron-builder install-app-deps & npm run lint:fix",
-    "vue-i18n-extract": "vue-i18n-extract"
+    "lint:fix": "yarn run lint -- --fix",
+    "preinstall": "node .electron-nuxt/check-engines.js",
+    "postinstall": "electron-builder install-app-deps & yarn run lint:fix"
   },
   "keywords": [],
   "author": "Rule110 <hello@rule110.io>",
   "license": "MIT",
   "homepage": "https://github.com/michalzaq12/electron-nuxt/blob/master/README.md",
   "engines": {
-    "node": ">=8.10.0"
+    "node": ">=12.13.0"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint"
+      "pre-commit": "yarn run lint"
     }
   },
   "devDependencies": {
     "@nuxtjs/axios": "^5.6.0",
     "@nuxtjs/dotenv": "^1.4.1",
-    "@nuxtjs/eslint-config": "1.1.2",
+    "@nuxtjs/eslint-config": "6.0.0",
     "@nuxtjs/moment": "^1.3.0",
     "@nuxtjs/style-resources": "^1.0.0",
-    "@xpda-dev/core": "^0.1.5",
-    "@xpda-dev/electron-builder": "^0.1.1",
-    "@xpda-dev/electron-launcher": "^0.1.1",
+    "@xpda-dev/core": "^0.1.6",
+    "@xpda-dev/electron-launcher": "^0.3.0",
+    "@xpda-dev/electron-builder": "^0.2.1",
     "@xpda-dev/webpack-step": "^0.1.2",
-    "babel-eslint": "10.0.3",
-    "browser-env": "3.2.6",
-    "cross-env": "^6.0.2",
-    "electron": "9.4.0",
-    "electron-builder": "21.2.0",
+    "babel-eslint": "10.1.0",
+    "browser-env": "3.3.0",
+    "cross-env": "7.0.3",
+    "electron": "12.0.2",
+    "electron-builder": "22.10.5",
     "electron-debug": "3.0.1",
-    "eslint": "5.16.0",
+    "electron-devtools-installer": "3.1.1",
+    "eslint": "7.23.0",
     "eslint-friendly-formatter": "4.0.1",
-    "eslint-loader": "3.0.2",
-    "node-sass": "^4.13.1",
+    "eslint-loader": "4.0.2",
+    "node-sass": "5.0.0",
     "nuxt": "^2.11.0",
     "nuxt-svg-loader": "^1.0.1",
-    "sass-loader": "8.0.0",
+    "sass-loader": "10.1.1",
     "vue-devtools": "5.1.3",
     "vue-i18n-extract": "^1.1.1",
-    "webpack": "4.41.0",
-    "webpack-node-externals": "1.7.2"
+    "webpack": "4.44.2",
+    "webpack-node-externals": "2.5.2"
   },
   "dependencies": {
     "chart.js": "^2.8.0",

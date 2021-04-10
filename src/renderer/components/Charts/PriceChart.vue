@@ -55,7 +55,8 @@ export default {
               display: false
             }
           ]
-        } }
+        }
+      }
     }
   },
   computed: {

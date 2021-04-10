@@ -14,8 +14,8 @@
 import Receive from '~/components/Receive/Receive.vue'
 
 export default {
-  layout: 'dashboard',
   components: { Receive },
+  layout: 'dashboard',
   data () {
     return {
     }

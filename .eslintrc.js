@@ -4,35 +4,31 @@ module.exports = {
     browser: true,
     node: true
   },
-  globals: {
-    __resources: true
-  },
   parserOptions: {
-    sourceType: 'module',
-    parser: 'babel-eslint'
+    sourceType: "module",
+    parser: "babel-eslint"
   },
-  extends: [
-    '@nuxtjs'
-
-  ],
+  extends: ["@nuxtjs", "@nuxtjs/eslint-config"],
   // add your custom rules here
   rules: {
     // StandardJS — The Rules
-    "indent": ["error", 2], // 2 spaces – for indentation
+    indent: ["error", 2], // 2 spaces – for indentation
     "no-console": "off",
     "arrow-parens": ["error", "as-needed"],
-    "curly": ["error", "multi-line"],
+    curly: ["error", "multi-line"],
     "import/no-extraneous-dependencies": "off",
     "require-await": 0,
 
     "global-require": 0,
-    'import/no-unresolved': 0,
-    'import/newline-after-import': 0,
-    'no-underscore-dangle': 0,
+    "import/no-unresolved": 0,
+    "import/newline-after-import": 0,
+    "no-underscore-dangle": 0,
 
-    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
+    "no-debugger": process.env.NODE_ENV === "production" ? 2 : 0,
 
     "vue/max-attributes-per-line": "off",
-    "vue/singleline-html-element-content-newline": 0
+    "vue/singleline-html-element-content-newline": 0,
+    "no-prototype-builtins": 0,
+    "vue/no-mutating-props": 0
   }
-}
+};
