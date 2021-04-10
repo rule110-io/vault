@@ -58,7 +58,7 @@
     "file-saver": "^2.0.2",
     "husky": "^3.0.9",
     "is-online": "^8.2.0",
-    "nkn-sdk": "^1.0.3",
+    "nkn-sdk": "^1.2.0",
     "nuxt-clipboard2": "^0.2.1",
     "nuxt-i18n": "^6.3.0",
     "pusher-js": "^6.0.3",

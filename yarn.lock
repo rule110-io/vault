@@ -7381,7 +7381,7 @@ nice-try@^1.0.4:
   resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"
   integrity sha512-1nh45deeb5olNY7eX82BkPO7SSxR5SSYJiPTrTdFUVYwAl8CKMA5N9PjTYkHiRjisVcxcQ1HXdLhx2qxxJzLNQ==
 
-nkn-sdk@^1.0.3:
+nkn-sdk@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/nkn-sdk/-/nkn-sdk-1.2.0.tgz#2de723f5a0c9eafd8bb830a3a6ae7e7aab207ada"
   integrity sha512-xT3+SzZeTu7KBeeSC1/E8BPGoBqp1lDrRrFZe58ZkOYFL3ty8CXfr1XCEe4USJf4Q8nZLnnPbnAP4JaxldDupw==
