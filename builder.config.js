@@ -20,11 +20,30 @@ const linuxOS = {
 };
 
 const macOS = {
+  afterSign: "scripts/notarize.js",
   mac: {
-    target: "dmg",
+    hardenedRuntime: true,
+    category: "public.app-category.productivity",
+    gatekeeperAssess: false,
+    entitlements: "build/entitlements.mac.plist",
+    entitlementsInherit: "build/entitlements.mac.plist",
+    target: [
+      "dmg",
+      "pkg",
+      "zip",
+      "mas"
+    ],
+    icon: ICONS_DIR + "con.icns",
+  },
+  mas: {
+    type: "distribution",
+    category: "public.app-category.productivity",
+    entitlements: "build/entitlements.mas.plist",
+    entitlementsInherit: "build/entitlements.mas.plist",
     icon: ICONS_DIR + "con.icns",
   },
   dmg: {
+    "sign": false,
     contents: [
       {
         x: 410,
@@ -43,7 +62,7 @@ const macOS = {
 
 module.exports = {
   productName: "Vault",
-  appId: "org.rule110io.vault",
+  appId: "com.rule110io.vault",
   artifactName: "vault-${version}.${ext}",
   directories: {
     output: "build",
