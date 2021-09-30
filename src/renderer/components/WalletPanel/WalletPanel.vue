@@ -51,7 +51,7 @@
         </div>
         <div class="wallet-panel__right">
           <div class="text__title">
-            {{ $t("last7Days") }}
+            {{ $t("last24h") }}
           </div>
           <h4
             class="wallet-panel__change"
@@ -111,18 +111,16 @@ export default {
       return this.walletInfo.name || []
     },
     currencyPrice () {
-      return (
-        (this.price.prices[0].price * this.currentExchangeRate).toFixed(6) || 0
-      )
+      return (this.price.usd * this.currentExchangeRate).toFixed(6) || 0
     },
     currentExchangeRate () {
-      return this.exchangeRates ? this.exchangeRates[this.selectedCurrency] : 1
+      return 1
     },
     currencyBalance () {
       return (this.balance * this.currencyPrice).toFixed(2)
     },
     weeklyChange () {
-      return this.price.prices[0].percent_change_7d.toFixed(2) || 0
+      return this.price.usd_24h_change.toFixed(2) || 0
     }
   },
   created () {},

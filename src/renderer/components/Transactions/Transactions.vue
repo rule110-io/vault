@@ -3,28 +3,37 @@
     <div class="table__wrapper">
       <div class="table__top">
         <h3 class="title_color_dark">
-          {{ $t('transactionsHistory') }}
+          {{ $t("transactionsHistory") }}
         </h3>
-        <a href="https://nscan.io/" target="_blank" class="text__link" @click="openExplorer">{{ $t('blockchainExplorer') }}</a>
+        <a
+          href="https://nscan.io/"
+          target="_blank"
+          class="text__link"
+          @click="openExplorer"
+        >{{ $t("blockchainExplorer") }}</a>
       </div>
     </div>
     <table>
       <thead v-if="!loading">
         <th>
-          {{ $t('dateTime') }}
+          {{ $t("dateTime") }}
         </th>
         <th>
-          {{ $t('type') }}
+          {{ $t("type") }}
         </th>
         <th>
-          {{ $t('addressTable') }}
+          {{ $t("addressTable") }}
         </th>
         <th class="text_align_right">
-          {{ $t('amount') }}
+          {{ $t("amount") }}
         </th>
       </thead>
       <template v-if="loading">
-        <tr v-for="(headingLoader, index) in loaders" :key="index" class="table__row_loader">
+        <tr
+          v-for="(headingLoader, index) in loaders"
+          :key="index"
+          class="table__row_loader"
+        >
           <td class="table__item_loader" colspan="4">
             <TableRowLoader />
           </td>
@@ -32,34 +41,79 @@
       </template>
       <template v-else>
         <tr v-for="tx in transactions" :key="tx.id">
-          <td>{{ $moment(tx.created_at + "Z").format('YYYY-MM-DD HH:mm') }}</td>
-          <td><span v-if="address === tx.payload.recipientWallet">{{ $t('recieved') }}</span> <span v-else>{{ $t('sent') }}</span></td>
+          <td>{{ $moment(tx.created_at + "Z").format("YYYY-MM-DD HH:mm") }}</td>
           <td>
-            <span v-if="tx.payload.payloadType === 'REGISTER_NAME_TYPE'">{{ $t('nameRegistration') }}</span>
-            <span v-else-if="tx.payload.payloadType === 'DELETE_NAME_TYPE'">{{ $t('nameDeletion') }}</span>
-            <span v-else-if="tx.payload.payloadType === 'TRANSFER_NAME_TYPE'">{{ $t('nameTransfer') }}</span>
-            <span v-else-if="address === tx.payload.recipientWallet && tx.payload.senderWallet === 'NKNaaaaaaaaaaaaaaaaaaaaaaaaaaaeJ6gxa'">{{ $t('miningReward') }}</span>
-            <span v-else-if="address === tx.payload.recipientWallet">{{ tx.payload.senderWallet }}</span> <span v-else>{{ tx.payload.recipientWallet }}</span>
+            <span v-if="address === tx.payload.recipientWallet">{{
+              $t("recieved")
+            }}</span>
+            <span v-else>{{ $t("sent") }}</span>
           </td>
-          <td class="text_align_right" :class="address === tx.payload.recipientWallet ? 'table__item_positive' : 'table__item_negative'">
-            <span v-if="tx.payload.registrantWallet === null">{{ tx.payload.amount | nknValue | commaNumber }}</span>
-            <span v-else-if="tx.payload.payloadType === 'REGISTER_NAME_TYPE'">{{ tx.payload.registration_fee | nknValue | commaNumber }}</span>
-            <span v-else-if="tx.payload.payloadType === 'DELETE_NAME_TYPE'">0 </span>
+          <td>
+            <span v-if="tx.payload.payloadType === 'REGISTER_NAME_TYPE'">{{
+              $t("nameRegistration")
+            }}</span>
+            <span v-else-if="tx.payload.payloadType === 'DELETE_NAME_TYPE'">{{
+              $t("nameDeletion")
+            }}</span>
+            <span v-else-if="tx.payload.payloadType === 'TRANSFER_NAME_TYPE'">{{
+              $t("nameTransfer")
+            }}</span>
+            <span
+              v-else-if="
+                address === tx.payload.recipientWallet &&
+                  tx.payload.senderWallet ===
+                  'NKNaaaaaaaaaaaaaaaaaaaaaaaaaaaeJ6gxa'
+              "
+            >{{ $t("miningReward") }}</span>
+            <span v-else-if="address === tx.payload.recipientWallet">{{
+              tx.payload.senderWallet
+            }}</span>
+            <span v-else>{{ tx.payload.recipientWallet }}</span>
+          </td>
+          <td
+            class="text_align_right"
+            :class="
+              address === tx.payload.recipientWallet
+                ? 'table__item_positive'
+                : 'table__item_negative'
+            "
+          >
+            <span v-if="tx.payload.registrantWallet === null">{{
+              tx.payload.amount | nknValue | commaNumber
+            }}</span>
+            <span v-else-if="tx.payload.payloadType === 'REGISTER_NAME_TYPE'">{{
+              tx.payload.registration_fee | nknValue | commaNumber
+            }}</span>
+            <span v-else-if="tx.payload.payloadType === 'DELETE_NAME_TYPE'">0
+            </span>
             <span v-else-if="tx.payload.payloadType === 'TRANSFER_NAME_TYPE'">0</span>
-            <a :href="`https://nscan.io/transactions/${tx.hash}`" target="_blank" class="text__link" @click="openExplorer" />
+            <a
+              :href="`https://nscan.io/transactions/${tx.hash}`"
+              target="_blank"
+              class="text__link"
+              @click="openExplorer"
+            />
           </td>
         </tr>
       </template>
     </table>
     <div v-if="isTransactions" class="page-navigation">
-      <div
-        class="page-navigation__info"
-      >
-        {{ $t('pagShowing') }} {{ from }} {{ $t('pagTo') }} {{ to }} {{ $t('pagOf') }} {{ totalTransactionsCount }} {{ $t('pagTransactions') }}
+      <div class="page-navigation__info">
+        {{ $t("pagShowing") }} {{ from }} {{ $t("pagTo") }} {{ to }}
+        {{ $t("pagOf") }} {{ totalTransactionsCount }}
+        {{ $t("pagTransactions") }}
       </div>
       <div class="page-navigation__pagination">
-        <Pagination :page="prevPage" type="prev" @click.native="getAddressTransactions(prevPage)" />
-        <Pagination :page="nextPage" type="next" @click.native="getAddressTransactions(nextPage)" />
+        <Pagination
+          :page="prevPage"
+          type="prev"
+          @click.native="getAddressTransactions(prevPage)"
+        />
+        <Pagination
+          :page="nextPage"
+          type="next"
+          @click.native="getAddressTransactions(nextPage)"
+        />
       </div>
     </div>
   </div>
@@ -100,7 +154,6 @@ export default {
       newTransactions: 'transactions/getTransactions',
       loading: 'transactions/getLoading',
       latestTx: 'transactions/getLatestTx'
-
     }),
     totalTransactionsCount () {
       return this.walletInfo.count_transactions || 0
@@ -124,7 +177,12 @@ export default {
       }
     },
     latestTx (newVal, oldVal) {
-      if (this.online === true && oldVal !== false && newVal !== undefined && oldVal !== undefined) {
+      if (
+        this.online === true &&
+        oldVal !== false &&
+        newVal !== undefined &&
+        oldVal !== undefined
+      ) {
         if (oldVal.id !== newVal.id) {
           this.parseTransactionsData(this.newTransactions)
           this.updateWalletInfo()
@@ -142,13 +200,16 @@ export default {
   },
   methods: {
     updateWalletInfo () {
-      this.$store.dispatch('wallet/updateWalletInfo', this.activeWallet.address)
+      this.$store.dispatch(
+        'wallet/updateWalletInfo',
+        this.activeWallet.address
+      )
     },
     getAddressTransactions (page) {
       this.$store.dispatch('transactions/updateLoading', true)
       this.$store.dispatch('transactions/updateTransactions', page)
     },
-    openExplorer () {
+    openExplorer (event) {
       event.preventDefault()
       const link = event.target.href
       shell.openExternal(link)
@@ -166,8 +227,10 @@ export default {
       this.from = from
       this.to = to
       this.currentPage = currentPage
-      this.prevPage = prevPage != null && this.online ? this.currentPage - 1 : null
-      this.nextPage = nextPage != null && this.online ? this.currentPage + 1 : null
+      this.prevPage =
+        prevPage != null && this.online ? this.currentPage - 1 : null
+      this.nextPage =
+        nextPage != null && this.online ? this.currentPage + 1 : null
 
       if (data !== undefined) {
         if (data.length > 0) {

@@ -35,7 +35,6 @@ export default {
             borderWidth: 2,
             tension: 0,
             backgroundColor: '#1b2f6b'
-
           },
           point: {
             radius: 0
@@ -65,25 +64,25 @@ export default {
     })
   },
   mounted () {
-    this.dailyHistoryPrice.USD.forEach(day => {
-      this.data.labels.push(day.date)
-      this.data.datasets[0].data.push(day.price)
+    this.dailyHistoryPrice.forEach(day => {
+      this.data.labels.push(day[0])
+      this.data.datasets[0].data.push(day[1])
     })
   }
 }
 </script>
 
 <style>
-  .priceChart{
-    height: 400px;
-    width: calc(100% + 64px);
-    position: absolute;
-    left: -32px;
-    bottom: -32px;
-  }
+.priceChart {
+  height: 400px;
+  width: calc(100% + 64px);
+  position: absolute;
+  left: -32px;
+  bottom: -32px;
+}
 
-  #line-chart{
-    height: 400px;
-    width: 100%;
-  }
+#line-chart {
+  height: 400px;
+  width: 100%;
+}
 </style>

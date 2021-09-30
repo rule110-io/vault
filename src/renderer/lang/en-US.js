@@ -44,7 +44,7 @@ export default {
   address: 'Address',
   currentBalance: 'Current balance',
   marketValue: 'Market value',
-  last7Days: 'Last 7 days',
+  last24h: 'Last 24h',
   overview: 'Overview',
   myWallet: 'My Wallet',
   transactionsHistory: 'Transaction History',
