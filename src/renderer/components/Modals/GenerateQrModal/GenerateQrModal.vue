@@ -16,7 +16,7 @@
             offset: 10,
           }"
           class="wallet-panel__copy fe fe-copy"
-          @click="$copyText('copyPublicAddress'), toggleSnack($t('copyWalletAddressSuccess'))"
+          @click="$copyText($t('copyPublicAddress')), toggleSnack($t('copyWalletAddressSuccess'))"
         />
       </div>
       <div class="modal__footer">
